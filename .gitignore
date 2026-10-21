@@ -1,0 +1,14 @@
+# Dependencias de Node
+/bin/
+/node_modules/
+
+# Archivos de configuración de Pulumi (contienen secretos)
+Pulumi.dev.yaml
+Pulumi.*.yaml
+
+# Archivos de entorno
+.env
+
+# archivos que solo entiendo
+help.md
+help_pul.md

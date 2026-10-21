@@ -1,0 +1,12 @@
+{
+    "name": "pulumi-servidores",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@pulumi/aws": "^7.51.1",
+        "@pulumi/pulumi": "^3.113.0"
+    }
+}
