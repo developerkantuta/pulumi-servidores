@@ -4,7 +4,7 @@
 
 # Archivos de configuración de Pulumi (contienen secretos)
 Pulumi.dev.yaml
-Pulumi.*.yaml
+#Pulumi.*.yaml
 
 # Archivos de entorno
 .env

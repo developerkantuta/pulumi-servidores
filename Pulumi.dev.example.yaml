@@ -1,0 +1,12 @@
+# =====================================================================
+# ARCHIVO DE CONFIGURACIÓN DE EJEMPLO
+# =====================================================================
+# Copia este archivo a 'Pulumi.dev.yaml' antes de ejecutar 'pulumi up'.
+# Pulumi generará automáticamente el 'encryptionsalt' cuando pidas la 
+# contraseña por primera vez.
+
+config:
+  pulumi-servidores:keyName: lab3-key
+  pulumi-servidores:myIp: 181.28.72.160/32
+  pulumi-servidores:instanceType: t3.micro
+  pulumi-servidores:amiId: ami-065cd998ed.......
