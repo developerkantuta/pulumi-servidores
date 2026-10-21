@@ -1,48 +1,67 @@
-# =====================================================================
-# GUÍA RÁPIDA DE COMANDOS DE PULUMI (TypeScript)
-# =====================================================================
+# 🚀 Guía Rápida de Comandos de Pulumi (TypeScript)
 
-# 1. INICIAR SESIÓN (Solo se hace una vez por computadora si usas backend local)
-# Sirve para decirle a Pulumi que guarde el estado en tu disco duro y no en la nube.
+Esta guía contiene los comandos esenciales para gestionar tu infraestructura como código con Pulumi y AWS.
+
+## 1. Iniciar sesión localmente
+*Solo se hace una vez por computadora si usas backend local.*
+Sirve para decirle a Pulumi que guarde el estado en tu disco duro y no en la nube.
+```bash
 pulumi login --local
+2. Crear un proyecto nuevo
+Solo se hace la primera vez.
+Inicializa la carpeta con los archivos básicos (index.ts, package.json, etc.).
 
-# 2. CREAR UN PROYECTO NUEVO (Solo se hace la primera vez)
-# Inicializa la carpeta con los archivos básicos (index.ts, package.json, etc.).
+bash
 pulumi new typescript -y
+3. Instalar el proveedor de AWS
+Solo se hace una vez por proyecto.
+Descarga el SDK para que Pulumi pueda comunicarse con AWS.
 
-# 3. INSTALAR EL PROVEEDOR DE AWS (Solo se hace una vez por proyecto)
-# Descarga el SDK para que Pulumi pueda hablar con AWS.
+bash
 npm install @pulumi/aws
+4. Configurar variables
+Se hace antes de crear la infraestructura.
+Guarda valores como tu IP o el tipo de instancia en un archivo de configuración.
 
-# 4. CONFIGURAR VARIABLES (Se hace antes de crear la infraestructura)
-# Guarda valores como tu IP o el tipo de instancia en un archivo de configuración.
+bash
 pulumi config set keyName lab3-key
 pulumi config set myIp 181.28.72.160/32
 pulumi config set amiId ami-065cd998ed.........
 pulumi config set instanceType t3.micro
+5. Ver el plan
+Opcional, pero muy recomendado.
+Te muestra qué recursos se van a crear, modificar o destruir SIN hacer cambios reales.
 
-# 5. VER EL PLAN (Opcional, pero muy recomendado)
-# Te muestra qué recursos se van a crear, modificar o destruir SIN hacer cambios reales.
+bash
 pulumi preview
+6. Crear o actualizar la infraestructura
+El comando principal.
+Lee tu código TypeScript, se conecta a AWS y crea las instancias y Security Groups.
+Te pedirá confirmación (selecciona yes) y tu contraseña (passphrase) si es la primera vez.
 
-# 6. CREAR O ACTUALIZAR LA INFRAESTRUCTURA (El comando principal)
-# Lee tu código TypeScript, se conecta a AWS y crea las instancias y Security Groups.
-# Te pedirá confirmación (selecciona 'yes') y tu contraseña (passphrase) si es la primera vez.
+bash
 pulumi up
+7. Ver las IPs públicas
+Para conectarte por SSH.
+Muestra los "outputs" que definiste en el código (ej. las IPs de frontend y backend).
 
-# 7. VER LAS IPs PÚBLICAS (Para conectarte por SSH)
-# Muestra los "outputs" que definiste en el código (ej. las IPs de frontend y backend).
+bash
 pulumi stack output
+8. Destruir la infraestructura
+¡MUY IMPORTANTE PARA NO PAGAR!
+Elimina todos los recursos creados por Pulumi en AWS. Te pedirá confirmación (yes).
 
-
-# 8. DESTRUIR LA INFRAESTRUCTURA (¡MUY IMPORTANTE PARA NO PAGAR!)
-# Elimina todos los recursos creados por Pulumi en AWS. Te pedirá confirmación ('yes').
+bash
 pulumi destroy
+9. Ver el historial de cambios
+Opcional.
+Muestra una lista de todas las veces que has hecho pulumi up o destroy.
 
-# 10. VER EL HISTORIAL DE CAMBIOS (Opcional)
-# Muestra una lista de todas las veces que has hecho 'pulumi up' o 'destroy'.
+bash
 pulumi stack history
+10. Borrar el stack
+Opcional.
+Elimina el registro del stack de tu disco local (útil si quieres empezar de cero).
 
-# 11. BORRAR EL STACK (Opcional)
-# Elimina el registro del stack de tu disco local (útil si quieres empezar de cero).
+bash
 pulumi stack rm dev
